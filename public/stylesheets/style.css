@@ -29,8 +29,10 @@ a.nostyle-a:hover {
 }
 
 .post{
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
   padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
 }
 
 .post .header{
@@ -39,13 +41,13 @@ a.nostyle-a:hover {
 }
 
 .post .face{
-  width: 3.5em;
-  height: 3.5em;
+  width: 2em;
+  height: 2em;
   margin-right: 1em;
 }
 
 .post .nickname{
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 7;
 }
 

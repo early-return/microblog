@@ -40,3 +40,23 @@
   margin-top: -1px;
   margin-bottom: 10px;
 }
+
+.say-box{
+  background-color: #eeeeee;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.say-box .form {
+  padding: 0;
+  margin: 0;
+}
+
+.say-box form textarea{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.say-box form button{
+  width: 5em;
+}

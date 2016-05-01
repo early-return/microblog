@@ -10,17 +10,29 @@ html(lang='zh-CN')
     link(rel='stylesheet', href='/stylesheets/form.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+  
     .container
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-right
-            li(role='presentation')
-              a(href='/reg') 注册
-            li(role='presentation')
-              a(href='/login') 登陆
+            if !user
+              li(role='presentation')
+                a(href='/reg') 注册
+              li(role='presentation')
+                a(href='/login') 登陆
+            else
+              li(role='presentation')
+                a(href='/u/#{user.name}') #{user.name}
+              li(role='presentation')
+                a(href='/logout') 退出登录
         h3.text-muted
           a.nostyle-a(href='/') Microblog
+          
+      if success
+        .alert.alert-success(role='alert') #{success}
+      if error
+        .alert.alert-danger(role='alert') #{error}
       block content
-      footer.footer Copyright &copy; 2016 <a href='http://zhiqing.info'>zhiqing.info</a>
+      
     script(src='/javascripts/jquery.js')
     script(src='/javascripts/bootstrap.min.js')

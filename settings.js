@@ -1,5 +1,4 @@
 module.exports = {
-    cookieSecret: 'zhiqingmicroblog',
-    db: 'microblog',
-    host: 'localhost'
+    secret: 'zhiqingmicroblog',
+    db: 'db.sqlite3'
 };

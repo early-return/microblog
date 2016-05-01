@@ -4,8 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var MongoStore = require('connect-mongo');
+var flash = require('connect-flash');
 var cookieSession = require('cookie-session');
+var settings = require('./settings');
+var db = require('./models/db');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,8 +23,25 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(flash());
 app.use(cookieParser());
+app.use(cookieSession({
+  secret: settings.secret,
+  cookie:{
+    maxAge: 5*60*1000
+  }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next){
+  res.locals.user = req.session?req.session.user:null;
+  res.locals.req = req;
+  res.locals.session = req.session;
+  res.locals.error = (err=req.flash('error')).length ? err : null;
+  res.locals.success = (succ=req.flash('success')).length ? succ : null;
+  next();
+})
+
 
 app.use('/', routes);
 app.use('/u', users);

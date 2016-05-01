@@ -1,6 +1,6 @@
-.post
+each post in posts
+  .post
     .header
       img.img-circle.face(src='/images/qrcode.png', alt='')
-      span.nickname Zhiqing
-    .content.
-      TETFAJFKKLSFKJFJLSJFKJSJKFJKLSFJKJKSFKJLJKL
+      span.nickname=post.user
+    .content=post.post

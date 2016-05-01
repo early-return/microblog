@@ -1,6 +1,5 @@
 var settings = require('../settings');
-var Db = require('mongodb').Db;
-var Connection = require('mongodb').Connection;
-var Server = require('mongodb').Server;
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(settings.db);
 
-module.exports = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT, {}));
+module.exports = db;
