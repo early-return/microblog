@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form.form(action='/reg', method='post')
+    h2.form-heading 注册
+    label.sr-only(for='inputName') 用户名
+    input.form-control(type='text', id='inputName', placeholder='用户名', required, autofocus)
+    label.sr-only(for='inputPassword') 密码
+    input.form-control(type='password', id='inputPassword', placeholder='密码', required)
+    label.sr-only(for='repeatPassword') 重复密码
+    input.form-control(type='password', id='repeatPassword', placeholder='请再次输入密码', required)
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') 注册

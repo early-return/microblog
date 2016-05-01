@@ -5,27 +5,22 @@ html(lang='zh-CN')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/jumbotron-narrow.css')
+    link(rel='stylesheet', href='/stylesheets/form.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='#') Myapp
-        #navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.active
-              a(href='#') Home
-            li
-              a(href='#about') About
-            li
-              a(href='#contact') Contact
     .container
+      .header.clearfix
+        nav
+          ul.nav.nav-pills.pull-right
+            li(role='presentation')
+              a(href='/reg') 注册
+            li(role='presentation')
+              a(href='/login') 登陆
+        h3.text-muted
+          a.nostyle-a(href='/') Microblog
       block content
+      footer.footer Copyright &copy; 2016 <a href='http://zhiqing.info'>zhiqing.info</a>
     script(src='/javascripts/jquery.js')
     script(src='/javascripts/bootstrap.min.js')

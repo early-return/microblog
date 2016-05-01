@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form.form(action='/login', method='post')
+    h2.form-heading 登录
+    label.sr-only(for='inputName') 邮箱
+    input.form-control(type='text', id='inputName', placeholder='用户名', required, autofocus)
+    label.sr-only(for='inputPassword') 密码
+    input.form-control(type='password', id='inputPassword', placeholder='密码', required)
+    .checkbox
+      label
+        input(type='checkbox', value='remember-me')
+        |记住登陆
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') 登录
+    
