@@ -21,10 +21,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
 router.get('/login', checker.notLogin);
 router.get('/login', function(req, res, next) {
-  res.render('login', { 
-    title: '登录' 
+  res.render('login', {
+    title: '登录'
   });
 });
 
@@ -32,7 +33,7 @@ router.post('/login', checker.notLogin);
 router.post('/login', function(req, res, next) {
   var md5 = crypto.createHash('md5');
   var password = md5.update(req.body.password).digest('base64');
-  
+
   User.get(req.body.username, function(err, user) {
     if(!user){
       req.flash('error', '用户不存在！');
@@ -50,8 +51,8 @@ router.post('/login', function(req, res, next) {
 
 router.get('/reg', checker.notLogin);
 router.get('/reg', function(req, res, next) {
-  res.render('reg', { 
-    title: '注册' 
+  res.render('reg', {
+    title: '注册'
   });
 });
 
@@ -62,17 +63,17 @@ router.post('/reg', function(req, res, next) {
     return res.redirect('/reg');
   }
   console.log(req.body.password);
-  
+
   var md5 = crypto.createHash('md5');
   var password = md5.update(req.body.password).digest('base64');
-  
+
   var newUser = new User({
     name: req.body.username,
     password: password,
     face: '',
     email: ''
   });
-  
+
   User.get(newUser.name, function(err, user) {
     if(user)
       err = '用户名已存在！';
@@ -80,7 +81,7 @@ router.post('/reg', function(req, res, next) {
       req.flash('error', err);
       return res.redirect('/reg');
     }
-    
+
     newUser.save(function(err) {
       if(err) {
         req.flash('error', err);

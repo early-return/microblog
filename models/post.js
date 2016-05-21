@@ -19,7 +19,7 @@ Post.prototype.save = function save(callback) {
     post: this.post,
     time: this.time,
   };
-  
+
   db.run('insert into posts values(?, ?, ?);', [post.user, post.post, post.time], function(err){
     console.log(err);
     return callback(err);
@@ -33,9 +33,7 @@ Post.get = function get(username, callback) {
   } else {
     var sql = 'select * from posts order by time desc;';
   }
-  console.log(sql);
   db.all(sql, function(err, rows){
-    console.log(rows);     
     if(err){
       return callback(err);
     }
@@ -45,4 +43,3 @@ Post.get = function get(username, callback) {
     callback(null, rows);
   });
 }
-  

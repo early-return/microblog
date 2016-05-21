@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form.form(action='/reg', method='post')
+  form.form.log-form(action='/reg', method='post')
     h2.form-heading 注册
     label.sr-only(for='inputName') 用户名
     input.form-control(type='text', id='inputName', name='username', placeholder='用户名', required, autofocus)

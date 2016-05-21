@@ -1,6 +1,8 @@
 each post in posts
   .post
     .header
-      img.img-circle.face(src='/images/qrcode.png', alt='')
-      span.nickname=post.user
+      a.nostyle-a(href='/u/#{post.user}')
+        img.img-circle.face(src='/images/qrcode.png', alt='')
+      a.nostyle-a(href='/u/#{post.user}')
+        span.nickname=post.user
     .content=post.post

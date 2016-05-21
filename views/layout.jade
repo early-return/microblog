@@ -4,7 +4,7 @@ html(lang='zh-CN')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title= title
+    title=title
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/jumbotron-narrow.css')
     link(rel='stylesheet', href='/stylesheets/form.css')
@@ -15,7 +15,7 @@ html(lang='zh-CN')
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-right
-            if !user
+            if (!user)
               li(role='presentation')
                 a(href='/reg') 注册
               li(role='presentation')
