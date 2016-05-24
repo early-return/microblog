@@ -1,5 +1,5 @@
 each post in posts
   .panel.panel-info
     .panel-heading
-      h3.panel-title #{post.user}
+      h3.panel-title <a href="/u/#{post.user}">#{post.user}</a>
     .panel-body #{post.post}

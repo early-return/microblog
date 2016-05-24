@@ -10,7 +10,7 @@ html(lang='zh-CN')
     link(rel='stylesheet', href='/stylesheets/form.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-  
+
     .container
       .header.clearfix
         nav
@@ -27,12 +27,14 @@ html(lang='zh-CN')
                 a(href='/logout') 退出登录
         h3.text-muted
           a.nostyle-a(href='/') Microblog
-          
+
       if success
         .alert.alert-success(role='alert') #{success}
       if error
         .alert.alert-danger(role='alert') #{error}
       block content
-      
+
+      footer Copyright @ 2016 <a href="http://zhiqing.info">zhiqing.info</a>
+
     script(src='/javascripts/jquery.js')
     script(src='/javascripts/bootstrap.min.js')
