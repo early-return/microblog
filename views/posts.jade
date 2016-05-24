@@ -1,8 +1,5 @@
 each post in posts
-  .post
-    .header
-      a.nostyle-a(href='/u/#{post.user}')
-        img.img-circle.face(src='/images/qrcode.png', alt='')
-      a.nostyle-a(href='/u/#{post.user}')
-        span.nickname=post.user
-    .content=post.post
+  .panel.panel-info
+    .panel-heading
+      h3.panel-title #{post.user}
+    .panel-body #{post.post}

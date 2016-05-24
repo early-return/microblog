@@ -104,6 +104,10 @@ router.get('/logout', function(req, res, next) {
 router.post('/post', checker.login);
 router.post('/post', function(req, res, next) {
   var currentUser = req.session.user;
+  if(req.body.post.length < 1 || req.body.post.length > 140 ){
+    req.flash('error', '微博内容在1到140个字之间！');
+    return res.redirect('/');
+  }
   var post = new Post(currentUser.name, req.body.post);
   post.save(function(err){
     if(err){
@@ -112,8 +116,8 @@ router.post('/post', function(req, res, next) {
       return res.redirect('/');
     }
     req.flash('success', '发表成功');
-    res.redirect('/u/' + currentUser.name);
-  })
+    res.redirect('/');
+  });
 });
 
 
