@@ -6,7 +6,7 @@
 
 示例： [Microblog](http://mb.zhiqing.info)
 
-用法：
+##用法：
 
 ```shell
 git clone https://github.com/Zhiqing-Lee/microblog.git
@@ -17,7 +17,7 @@ npm start
 
 浏览器访问: http://localhost:3000
 
-setting.js:
+##setting.js:
 
 ```javascript
 db: 'db.sqlite3' //数据库文件

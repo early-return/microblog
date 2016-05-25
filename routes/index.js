@@ -5,6 +5,8 @@ var User = require('../models/user');
 var Post = require('../models/post');
 var checker = require('./checker');
 
+checkUsername = (username) => (new RegExp("^\\w+$")).test(username);
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Post.get(null, function(err, posts) {
@@ -58,6 +60,10 @@ router.get('/reg', function(req, res, next) {
 
 router.post('/reg', checker.notLogin);
 router.post('/reg', function(req, res, next) {
+  if(!checkUsername(req.body.username)){
+    req.flash('error', '用户名只能包含字母数字和下划线！');
+    return res.redirect('/reg');
+  }
   if(req.body['rpassword'] != req.body['password']){
     req.flash('error', '两次密码输入不一致！');
     return res.redirect('/reg');
